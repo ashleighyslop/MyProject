@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NewAlbum</title>
+<!--<script type='text/javascript' src='albumName.js'></script>-->
+<link rel = 'stylesheet' type ='text/css' href = '/css/newalbum.css'>
+<script type="text/javascript">
+      /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+     }
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+</head>
+<body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '278665742652119',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+     }
+   (document, 'script', 'facebook-jssdk')
+ );
+
+
+   FB.getLoginStatus(function(response) {
+       statusChangeCallback(response);
+   });
+
+   function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+ }
+
+
+</script>
+<!--attept to connect to fb-->
+  <div id='page_content'>
+    <header>
+
+     <h1> 'albumName()'</h1> <!-- TODO: how to get input from myalbums new album name and paste into here-->
+     <div class = "drop-down">
+        <button onclick="myFunction()" class="dropbtn">Menu</button>
+         <div id="myDropdown" class="dropdown-content">
+          <a onclick="window.location.href='index.html'"> Home</a>
+          <a>Profile</a>
+          <a onclick="window.location.href='myalbums.html'"> Albums </a>
+          <a>Logout</a>
+         </div>
+      </div>
+     </header>
+
+    <main>
+      <p onclick="document.getElementById('adding_options').style.display='block'"> + Add photos </p>
+      <p onclick="window.location.href='myalbums.html'"> - Delete Album </p>
+      <!--TODO: now want to connect to fb and camera roll-->
+      <div id='adding_options'>
+        <form id='options_form' class='animate'>
+          <div id='container'>
+            <p> Do you want to upload photos from Camera Roll or facebook?</p>
+            <!-- TODO: on click want to connect to relevant APIS -->
+            <img src='../images/camera_roll.jpeg' style='height:10px; width:10px; mix-blend-mode: multiply;'>
+            <img src='../images/facebook_logo.png' style='height:10px; width:10px;'>
+          </div>
+        </form>
+      </div>
+
+
+    </main>
+    <fb:login-button scope="public_profile,email"onlogin="checkLoginState();"></fb:login-button>
+
+
+
+  </div>
+</body>

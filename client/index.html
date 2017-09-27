@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HomePage</title>
+<link rel = 'stylesheet' type ='text/css' href = '/css/index.css'>
+<script type="text/javascript">
+        // Get the modal
+var modal = document.getElementById('modal');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+      /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+     }
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <div id='page_content'>
+
+    <header id='header'>
+      <h1>App Name</h2>
+      <div class = "drop-down">
+          <button onclick="myFunction()" class="dropbtn">Menu</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a onclick="window.location.href='index.html'"> Home</a>
+            <a  onclick="window.location.href='profile.html'">Profile</a>
+            <a onclick="window.location.href='myalbums.html'"> Albums </a>
+            <a onclick="document.getElementById('modal').style.display='block'">Login</a>
+          </div>
+      </div>
+  </header>
+
+
+<!-- The Modal -->
+ <div id="modal" class="modal">
+  <span onclick="document.getElementById('modal').style.display='none'"
+   class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate">
+    <div id="imgcontainer">
+      <img src="../images/camera.png" id='camera'>
+    </div>
+
+    <div id='container'>
+
+      <a id='button' onclick="window.location.href='/myalbums.html'" type="submit" >Login</a>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div id='bottom_container' style="background-color:#f1f1f1">
+      <button id='button' type="button" onclick="document.getElementById('modal').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<article>
+  <p> Create photo albums for any event </p>
+  <p> Collaborate with friends </p>
+  <p> Share photos with others at the same event </p>
+</article>
+
+
+</div>
+</body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+<link rel = 'stylesheet' type ='text/css' href = '/css/profile.css'>
+<script type="text/javascript">
+      /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+     }
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <div id='page-content'>
+    <header>
+      <div id="tfheader" style="float: right;">
+       <form id="tfnewsearch" method="get" action="http://www.google.com">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+       </form>
+     <div class="tfclear"></div>
+     </div>
+      <h1> UserName </h1>
+      <img id='user_picture' src='/images/avatar.png'>
+      <div class = "drop-down">
+         <button onclick="myFunction()" class="dropbtn">Menu</button>
+          <div id="myDropdown" class="dropdown-content">
+           <a onclick="window.location.href='index.html'"> Home</a>
+           <a  onclick="window.location.href='profile.html'">Profile</a>
+           <a onclick="window.location.href='myalbums.html'"> Albums </a>
+           <a>Logout</a>
+          </div>
+       </div>
+    </header>
+    <main>
+      <ul>
+        <li>Albums: 3</li>
+        <li>Private: 3</li>
+        <li>Collaborative: 1</li>
+        <li>Public: 0</li>
+      </ul>
+    </main>
+    <footer>
+      <p>Change your...</p>
+      <ul>
+        <li>User Name</li>
+        <li> Password </li>
+        <li> Profile Photo</li>
+        <li>Logout</li>
+      </ul>

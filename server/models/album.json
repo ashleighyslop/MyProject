@@ -1,0 +1,38 @@
+{
+  "name": "Album",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "albumName": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Author": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "photos": {
+      "type": "hasMany",
+      "model": "Photos",
+      "foreignKey": "albumId",
+      "primaryKey": "id"
+    },
+    "events": {
+      "type": "belongsTo",
+      "model": "Events",
+      "foreignKey": "albumId",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

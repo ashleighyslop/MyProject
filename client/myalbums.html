@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyAlbums</title>
+<link rel = 'stylesheet' type ='text/css' href = '/css/myalbums.css'>
+<script type="text/javascript">
+      /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+     }
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <div id='page_content'>
+    <header>
+      <div id="tfheader" style="float: right;">
+		   <form id="tfnewsearch" method="get" action="http://www.google.com">
+		        <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+		   </form>
+	   <div class="tfclear"></div>
+	   </div>
+     <h1> My Albums </h1>
+     <div class = "drop-down">
+        <button onclick="myFunction()" class="dropbtn">Menu</button>
+         <div id="myDropdown" class="dropdown-content">
+          <a onclick="window.location.href='index.html'"> Home</a>
+          <a  onclick="window.location.href='profile.html'">Profile</a>
+          <a onclick="window.location.href='myalbums.html'"> Albums </a>
+          <a>Logout</a>
+         </div>
+      </div>
+    </header>
+    <main>
+      <p onclick="document.getElementById('create').style.display='block'"> + </p>
+      <div id='create'>
+        <form id='create_form' class='animate'>
+          <div id='container'>
+            <h1 id='newAlbumName'>New Album Name</h1>
+            <input type="text" placeholder=" " name="New Album Name"  >
+          </div>
+          <div id='bottom_container'>
+            <p onclick="window.location.href='/newalbum.html'"> OK </p>
+          </div>
+        </form>
+      </div>
+
+      <article id = 'album1'>
+        <h3 onclick="window.location.href='/album1.html'"> Album 1 </h3>
+      </article>
+      <article id= 'album2'>
+        <h3 onclick="window.location.href='/album2.html'"> Album 2 </h3>
+      </article>
+      <article id ='album3'>
+        <h3 onclick="window.location.href='/album3.html'"> Album 3 </h3>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

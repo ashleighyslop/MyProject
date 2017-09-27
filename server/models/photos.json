@@ -1,0 +1,34 @@
+{
+  "name": "Photos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Description": {
+      "type": "string"
+    },
+    "Owner": {
+      "type": "string",
+      "required": true
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "albums": {
+      "type": "belongsTo",
+      "model": "Albums",
+      "foreignKey": "photosId",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

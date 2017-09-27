@@ -1,0 +1,47 @@
+{
+  "name": "Events",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "eventName": {
+      "type": "string",
+      "required": true
+    },
+    "Location": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Admin": {
+      "type": "string"
+    },
+    "Private": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "album": {
+    "type": "hasMany",
+    "model": "Album",
+    "foreignKey": "eventId",
+    "primaryKey": "id"
+  },
+  "user":{
+    "type": "hasAndBelongsToMany",
+    "model": "User",
+    "foreignKey": "eventId",
+    "primaryKey": "id"
+  }
+},
+  "acls": [],
+  "methods": {}
+}
