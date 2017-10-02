@@ -3,5 +3,8 @@ module.exports = function(app) {
   router.get('../client/index.html', function(req, res) {
     res.send('');
   });
+  router.get('../client/myalbums.html', function(req, res) {
+    res.send('');
+  });
   app.use(router);
 }

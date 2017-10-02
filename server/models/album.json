@@ -1,6 +1,6 @@
 {
   "name": "Album",
-  "base": "PersistedModel",
+  "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
